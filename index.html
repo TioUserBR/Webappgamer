@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Jogo da Velha</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>🎮 Jogo da Velha</h1>
+            <div id="connection-status" class="connection-status">
+                <span class="status-dot"></span>
+                <span class="status-text">Conectando...</span>
+            </div>
+        </header>
+
+        <!-- Player Info -->
+        <div id="player-info" class="player-info">
+            <div class="player-card">
+                <span class="player-name" id="player-name">Carregando...</span>
+                <span class="player-stats" id="player-stats">0 pts</span>
+            </div>
+        </div>
+
+        <!-- Game Status -->
+        <div id="game-status" class="game-status hidden">
+            <div class="status-row">
+                <div class="player-display" id="player-x-display">
+                    <span class="symbol x">X</span>
+                    <span class="name" id="player-x-name">Jogador X</span>
+                </div>
+                <div class="vs">VS</div>
+                <div class="player-display" id="player-o-display">
+                    <span class="symbol o">O</span>
+                    <span class="name" id="player-o-name">Jogador O</span>
+                </div>
+            </div>
+            <div class="turn-indicator" id="turn-indicator">
+                <span id="turn-text">Turno: X</span>
+                <span class="timer" id="timer">30s</span>
+            </div>
+            <div class="first-player" id="first-player">
+                Primeiro a jogar: <span id="first-player-symbol">X</span>
+            </div>
+        </div>
+
+        <!-- Game Board -->
+        <div id="game-board" class="game-board hidden">
+            <div class="board">
+                <div class="cell" data-index="0"></div>
+                <div class="cell" data-index="1"></div>
+                <div class="cell" data-index="2"></div>
+                <div class="cell" data-index="3"></div>
+                <div class="cell" data-index="4"></div>
+                <div class="cell" data-index="5"></div>
+                <div class="cell" data-index="6"></div>
+                <div class="cell" data-index="7"></div>
+                <div class="cell" data-index="8"></div>
+            </div>
+        </div>
+
+        <!-- Game Result -->
+        <div id="game-result" class="game-result hidden">
+            <div class="result-content">
+                <span class="result-icon" id="result-icon">🏆</span>
+                <h2 id="result-title">Você Venceu!</h2>
+                <p id="result-message">Parabéns pela vitória!</p>
+                <p class="points-earned" id="points-earned">+3 pontos</p>
+            </div>
+        </div>
+
+        <!-- Menu (when not in game) -->
+        <div id="menu" class="menu">
+            <h2>🎯 Encontrar Partida</h2>
+            
+            <!-- Online Players List -->
+            <div class="online-section">
+                <h3>👥 Jogadores Online</h3>
+                <div id="online-players" class="online-players">
+                    <div class="loading">Carregando jogadores...</div>
+                </div>
+            </div>
+            
+            <!-- Actions -->
+            <div class="menu-actions">
+                <button id="btn-refresh" class="btn btn-secondary">
+                    🔄 Atualizar Lista
+                </button>
+            </div>
+        </div>
+
+        <!-- Waiting for opponent -->
+        <div id="waiting" class="waiting hidden">
+            <div class="waiting-content">
+                <div class="spinner"></div>
+                <h3>Aguardando oponente...</h3>
+                <p id="waiting-message">Convite enviado! Aguardando resposta...</p>
+                <button id="btn-cancel-wait" class="btn btn-danger">
+                    ❌ Cancelar
+                </button>
+            </div>
+        </div>
+
+        <!-- Game Actions -->
+        <div id="game-actions" class="game-actions hidden">
+            <button id="btn-new-game" class="btn btn-primary">
+                🎮 Nova Partida
+            </button>
+            <button id="btn-leave-game" class="btn btn-danger">
+                🚪 Sair da Partida
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
