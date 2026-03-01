@@ -1,11 +1,11 @@
-/**
+/*
  * script.js - Lógica do frontend do Jogo da Velha
  * Gerencia WebSocket, interface e interações do usuário
  */
 
 // ==================== CONFIGURAÇÕES ====================
 
-const WEBSOCKET_URL = 'wss://seu-dominio.com/ws'; // Altere para sua URL
+const WEBSOCKET_URL = 'wss://axicld.duckdns.org:3018/ws'; // Altere para sua URL
 const MOVE_TIMEOUT = 30;
 
 // ==================== VARIÁVEIS GLOBAIS ====================
@@ -605,4 +605,5 @@ function escapeHtml(text) {
 }
 
 // Expõe função para uso no HTML
+
 window.invitePlayer = invitePlayer;
